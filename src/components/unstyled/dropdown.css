@@ -44,3 +44,15 @@
 .dropdown:is(details) summary::-webkit-details-marker {
   @apply hidden;
 }
+
+.dropdown:popover-open {
+  @apply bg-red-500;
+}
+
+.dropdown[popover] {
+  @apply hidden;
+}
+
+.dropdown[popover]:popover-open {
+  @apply absolute left-0 top-32 block;
+}

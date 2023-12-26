@@ -30,7 +30,28 @@ data="{[
 ]}"
 />
 
-### Method 1: using details and summary tags
+### Method 1: using HTML Popover
+
+<Component title="Dropdown menu using popover" desc="Stays open until gets clicked again. Or you can close it using JS by removing the `open` attribute">
+<button popovertarget="my-popover" class="m-1 btn mb-32">open or close</button>
+<div  popover id="my-popover" class="dropdown">
+  <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+    <li><button>Item 1</button></li>
+    <li><button>Item 2</button></li>
+  </ul>
+</div>
+<pre slot="html" use:replace={{ to: $prefix }}>{
+`<details class="$$dropdown">
+  <summary class="m-1 btn">open or close</summary>
+  <ul class="p-2 shadow $$menu $$dropdown-content z-[1] bg-base-100 $$rounded-box w-52">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</details>`
+}</pre>
+</Component>
+
+### Method 2: using details and summary tags
 
 <Component title="Dropdown menu using <details> tag" desc="Stays open until gets clicked again. Or you can close it using JS by removing the `open` attribute">
 <details class="dropdown mb-32">
@@ -51,7 +72,7 @@ data="{[
 }</pre>
 </Component>
 
-### Method 2: Using CSS focus
+### Method 3: Using CSS focus
 
 <div class="alert text-sm mb-2">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info-content shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
